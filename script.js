@@ -59,7 +59,7 @@
     
             function downloadCV() {
       // Replace with the actual link to your CV file
-      const cvLink = './../documents/CV_Mohamed_Rayen_Khlifi.pdf';
+      const cvLink = './documents/CV_Mohamed_Rayen_Khlifi.pdf';
       window.open(cvLink, '_blank');
     }
 
