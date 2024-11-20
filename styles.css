@@ -1,17 +1,18 @@
 :root {
+    --bg-image: url('background/jellyfish-space-digital-art-animal-2k-wallpaper-uhdpaper.com-727@2@b.jpg'); 
     --bg: #ffffff;
     --text: #333333;
     --accent: #2563eb;
-    --surface: #f5f5f5;
-    --transition-duration: 0.3s; /* Change this for faster or slower transitions */
-    --transition-easing: ease;  /* Ensure consistent easing */
-}
+    --surface: rgba(245, 245, 245, 0.6);
+    --transition-duration: 0.3s; 
+    --transition-easing: ease ;  
+} 
 
 .dark {
-    --bg: #1a1a1a;
+    --bg: rgba(26, 26, 26, 0.7);
     --text: #ffffff;
     --accent: #3b82f6;
-    --surface: #2d2d2d;
+    --surface: rgba(45, 45, 45, 0.5);
 }
 
 :root, .dark{
@@ -26,6 +27,7 @@
     box-sizing: border-box;
     transition: background-color var(--transition-duration) var(--transition-easing),
                 color var(--transition-duration) var(--transition-easing);
+    
 }
 
 .social-link, .dark .social-link {
@@ -33,21 +35,15 @@
 }
 
 
-
 #home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    background-color: transparent;
+    backdrop-filter: none;
     min-height: 100vh;
     padding: 2rem;
-    background-color: var(--bg); /* Optional: Ensure it visually stands out */
-    overflow: hidden; /* Ensures no extra space at the edges */
+    transition: 0.3 var(--transition-easing); 
 }
 
 
- /* Animation keyframes */
  @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -63,16 +59,16 @@
     50% { opacity: 0; }
 }
 
-/* Animation styles */
 .text-content {
     overflow: hidden;
 }
 
 .animate-text {
     opacity: 0;
-    animation: fadeInUp 0.3s ease forwards;
+    animation: fadeInUp 0.3s var(--transition-easing) forwards;
     white-space: nowrap;
     overflow: hidden;
+    color: white;
 }
 
 
@@ -81,7 +77,7 @@
     animation: blink 1s step-end infinite;
 }
 
-/**/
+
 
 .project-card{
     background: var(--surface);
@@ -91,6 +87,9 @@
     text-decoration: none;
     color: var(--text);
     display: block;
+
+    transition: background-color var(--transition-duration) var(--transition-easing), 
+                box-shadow var(--transition-duration) var(--transition-easing);
 }
 
 .card {
@@ -102,9 +101,9 @@
     display: block;
 }
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: scale(1.10);
     background: var(--accent);
-    color: var(--text);
+    color: white
 }
 
 .project-card h3 {
@@ -136,12 +135,13 @@
     transform: translateY(-2px);
 }
 
-
-
-
 body {
     font-family: system-ui, sans-serif;
-    background: var(--bg);
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
     transition: background-color var(--transition-duration) var(--transition-easing), 
@@ -161,13 +161,13 @@ nav {
     align-items: center;
 }
 
+
 nav a {
     color: var(--text);
     text-decoration: none;
     margin: 0 1rem;
+    transition: color var(--transition-duration) var(--transition-easing);
 }
-
-
 
 .container {
     max-width: 1100px;
@@ -198,23 +198,21 @@ section.visible {
 }
 
 
-
 .profile-pic {
     display: block;
     width: 300px;
     height: 300px;
     border-radius: 8px;
     object-fit: cover;
-    border: none; /* No border */
-    box-shadow: none; /* No shadows */
-    background-color: transparent; /* Prevent any background color */
+    border: none; 
+    box-shadow: none; 
+    background-color: transparent; 
     transition: all var(--transition-duration) var(--transition-easing);
 }
 
 
-/* Optional: Additional rules for hover if needed */
 .profile-pic:hover {
-    transform: translateY(-5px); /* Subtle hover effect */
+    transform: translateY(-5px); /
 }
 
 .grid {
@@ -223,7 +221,6 @@ section.visible {
     gap: 1.5rem;
     margin: 2rem 0;
 }
-
 
 
 .certificate-slider {
@@ -241,7 +238,7 @@ section.visible {
 }
 
 .nav-link:hover {
-    color: var(--accent); /* Change to a highlight color when hovered */
+    color: var(--accent); 
 }
 
 .nav-link::after {
@@ -251,12 +248,12 @@ section.visible {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--primary); /* Highlight color */
+    background-color: var(--primary);
     transition: width var(--transition-duration) var(--transition-easing);
 }
 
 .nav-link:hover::after {
-    width: 100%; /* Expand underline on hover */
+    width: 100%; 
 }
 
 .contact-details {
@@ -270,14 +267,12 @@ section.visible {
 }
 
 
-
-
 .slide {
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: 0.5s ease;
+    transition: 0.5s var(--transition-easing);
 }
 
 .slide.active {
@@ -334,13 +329,12 @@ button {
 
 
 footer {
-    background-color: transparent; /* Removes the background */
-    color: var(--text); /* Matches the text color to the page theme */
-    text-align: center; /* Centers the text */
-    padding: 10px 0; /* Adds spacing for readability */
-    font-size: 14px; /* Adjusts the font size if necessary */
+    background-color: transparent; 
+    color: var(--text); 
+    text-align: center; 
+    padding: 10px 0; 
+    font-size: 14px; 
 }
-
 
 
 @media (max-width: 768px) {
@@ -356,13 +350,12 @@ footer {
     }
 }
 
-
 .social-links {
     margin-top: 2rem;
 }
 
 .social-link {
-    color: var(--text); /* Default color for light theme */
+    color: var(--text); 
     transition: color var(--transition-duration) var(--transition-easing);
     display: inline-flex;
     align-items: center;
@@ -373,7 +366,7 @@ footer {
 }
 
 .social-link svg {
-    fill: var(--text); /* Default to match the text color */
+    fill: var(--text); 
     transition: fill var(--transition-duration) var(--transition-easing);
     margin-right: 0.5rem;
     width: 24px;
@@ -381,13 +374,13 @@ footer {
 }
 
 .dark .social-link {
-    color: var(--text); /* Change text to white in dark mode */
+    color: var(--text); 
     transition: color var(--transition-duration) var(--transition-easing);
 }
 
 .dark .social-link svg {
-    fill: var(--text); /* Make SVG icons var(--text) */
-    transition: fill var(--transition-duration) var(--transition-easing); /* Smooth transition */
+    fill: var(--text); 
+    transition: fill var(--transition-duration) var(--transition-easing);
 }
 
 
@@ -397,7 +390,7 @@ footer {
     transform: translateY(-2px);
 }
 
-.card, .social-link, .project-card, footer, .slider-nav button {
+.card, .social-link, footer, .slider-nav button {
     transition: background-color var(--transition-duration) var(--transition-easing), 
                 color var(--transition-duration) var(--transition-easing), 
                 box-shadow var(--transition-duration) var(--transition-easing);
@@ -414,25 +407,13 @@ footer {
     color: var(--text);
   }
 
-
-
-
-
-
-
-
-
-
-
-#about-me {
+  #about-me {
     padding: 5rem 2rem;
     background: var(--surface);
-    transition: 0.3s ease;
+    transition: 0.3s var(--transition-easing);
     text-decoration: none;
     color: var(--text);
     display: block;
-    
-
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 800px;
@@ -449,6 +430,15 @@ footer {
     line-height: 1.5;
   }
   
+
+  .submit-button{
+    color: white;
+  }
+.submit-button:hover{
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
   .cv-download {
     font-size: 1rem;
     padding: 12px 24px;
@@ -475,6 +465,7 @@ footer {
 
   #education {
     padding: 5rem 2rem;
+    transition: 0.3s var(--transition-easing);
 }
 
 .timeline {
@@ -518,11 +509,10 @@ footer {
     margin: 5px 0;
     color: var(--text);
 }
-
-
   
 #experience {
     padding: 5rem 2rem;
+    transition: 0.3s var(--transition-easing);
 }
 
 h2 {
@@ -559,7 +549,7 @@ h2::after {
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--transition-easing);
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -653,4 +643,24 @@ h2::after {
     }
 }
 
+#about-me, #education, #experience, #skills, #projects, #certificates, #contact {
+    background-color: var(--surface);
+    backdrop-filter: blur(10px);
+    padding: 3rem 2rem;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s var(--transition-easing);
+}
 
+
+nav, section {
+    background-color: var(--surface);
+    backdrop-filter: blur(10px);
+}
+
+
+p, li, a, button, input {
+    font-size: 110%;
+}
